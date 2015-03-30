@@ -14,6 +14,7 @@ and open the template in the editor.
         // put your code here
             echo "hello";
             echo "dawg";
+            echo "i can believe that its butter"
         ?>
     </body>
 </html>
