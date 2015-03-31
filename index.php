@@ -12,7 +12,7 @@
 <body style="max-width:100%;overflow-x:hidden;">   
     <script src="jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <div class="navbar navbar-inverse">
+        <div class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.51);">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar-content">
@@ -25,12 +25,18 @@
                 <div class="collapse navbar-collapse" id="mynavbar-content">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown" id="menuLogin">
-                          <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+                          <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" style="opacity:1.0;">Login</a>
                           <div class="dropdown-menu" style="padding:17px;">
                             <form class="form" id="formLogin"> 
-                              <input name="username" id="username" type="text" placeholder="Username"> 
-                              <input name="password" id="password" type="password" placeholder="Password"><br>
-                              <button type="button" id="btnLogin" class="btn">Login</button>
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="username" placeholder="Username" />
+                              </div>
+                              <div class="form-group">
+                              <input type="password" class="form-control" id="password" placeholder="Password" />
+                              </div>
+                              <div class="form-group">
+                              <button type="submit" class="btn btn-primary">Login</button> 
+                          </div>
                             </form>
                           </div>
                         </li>
@@ -38,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="jumbotron" style="background: url('bg.jpg'); margin-top:-20px; padding-top:135px; padding-bottom:135px;">
+        <div class="jumbotron" style="background: url('bg.jpg'); margin-top:-80px; padding-top:165px; padding-bottom:135px;">
   <div class="container">
     <h1 style="color:white; text-align:center;">National Honor Society</h1>
     <h1 style="color:#DFDFDF; text-align:center; font-size:30px;">Downingtown STEM Academy</h1>
