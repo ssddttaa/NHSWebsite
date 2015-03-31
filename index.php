@@ -20,7 +20,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#" style="font-size:22px; color:white;">Downingtown STEM National Honor Society</a>
+                    <a class="navbar-brand" href="#" style="font-size:22px; color:white;">stem nhs</a>
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar-content">
                     <ul class="nav navbar-nav navbar-right">
@@ -38,9 +38,15 @@
                 </div>
             </div>
         </div>
+        <div class="jumbotron" style="background: url('bg.jpg'); margin-top:-20px; padding-top:135px; padding-bottom:135px;">
+  <div class="container">
+    <h1 style="color:white; text-align:center;">National Honor Society</h1>
+    <h1 style="color:#DFDFDF; text-align:center; font-size:30px;">Downingtown STEM Academy</h1>
+  </div>
+</div>
         <div class="container">
 
-        <div class="panel panel-default">
+        <!--<div class="panel panel-default">
             <div class="panel-heading">
                 ATTENTION STUDENTS
             </div>
@@ -50,7 +56,7 @@
             <div class="panel-footer">
                 <a href="#" class="btn btn-danger btn-sm">Agree</a> 
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="col-md-9">
                 <h4>Updates</h4>
