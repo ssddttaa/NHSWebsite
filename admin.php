@@ -10,9 +10,9 @@
     
 </head>
 <body style="max-width:100%;overflow-x:hidden;">   
-    <script src="jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <div class="navbar navbar-inverse">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+        <div class="navbar navbar-default" style="margin-bottom:0px;background-color:#2980b9;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar-content">
@@ -20,45 +20,34 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#" style="font-size:22px; color:white;">Downingtown STEM National Honor Society</a>
+                    <a class="navbar-brand" href="admin.php" style="font-size:22px; color:white;">Downingtown STEM National Honor Society</a>
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar-content">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" id="menuLogin">
-                          <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
-                          <div class="dropdown-menu" style="padding:17px;">
-                            <form class="form" id="formLogin"> 
-                              <input name="username" id="username" type="text" placeholder="Username"> 
-                              <input name="password" id="password" type="password" placeholder="Password"><br>
-                              <button type="button" id="btnLogin" class="btn">Login</button>
-                            </form>
-                          </div>
-                        </li>
+                        <li name="ManageTab"><a href="#" style="color:white;">Manage Meetings</a></li>
+                        <li name="LogoutTab"><a href="#" style="color:white;">Logout</a></li>
                     </ul>
+                </div>
+            </div>
+        </div> 
+        <div class="row" style="background-color:#f1c40f">\
+            <div class="container-fluid" style="margin-top:-10px;margin-bottom:7px">
+                <div class="col-xs-12">
+                    URGENT: Meeting now- <a href="#" class="btn btn-danger btn-xs">Agree</a>
+                    <a href="#" class="btn btn-default btn-circle pull-right" style="background-color:#f1c40f;"><i class="glyphicon glyphicon-remove pull-right"></i></a>
                 </div>
             </div>
         </div>
         <div class="container">
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                ATTENTION STUDENTS
-            </div>
-            <div class="panel-body">
-                The National Honor Society meeting scheduled for (Time/Date) regarding (SubjectOfMeeting) is currently taking place. Would you like to sign in for attendance?
-            </div>
-            <div class="panel-footer">
-                <a href="#" class="btn btn-danger btn-sm">Agree</a> 
-            </div>
-        </div>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-xs-9">
                 <h4>Updates</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiuxsod tempor incididunt ut labore et dolore magna aliqua. </p>
             </div>
-            <div class="col-md-3">
+            <div class="col-xs-3">
                 <h4>Events</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiuxsod tempor incididunt ut labore et dolore magna aliqua. </p>
             </div>
         </div>
         <!--<form class="form">
