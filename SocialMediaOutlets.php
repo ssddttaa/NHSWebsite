@@ -6,7 +6,7 @@
     $cb->setToken("1485424604-aGwtCYnZzvax95Zksw7M3vSn4wfnx8gyO3ujfiy", "sAD8J6S5U4oX6i7GF89ShIPYPbFcqELMoYXnIN9ty65x5");
 
     $params = array(
-      'status' => 'test tweet #php #twitter'
+      'status' => 'this might be sadat'
     );
     $reply = $cb->statuses_update($params); 
 ?>

@@ -29,10 +29,10 @@
                           <div class="dropdown-menu" style="padding:17px;">
                             <form class="form" id="formLogin"> 
                             <div class="form-group">
-                              <input type="text" class="form-control" id="username" placeholder="Username" />
+                              <input type="text" class="form-control" id="username" placeholder="Username"/>
                               </div>
                               <div class="form-group">
-                              <input type="password" class="form-control" id="password" placeholder="Password" />
+                              <input type="password" class="form-control" id="password" placeholder="Password"/>
                               </div>
                               <div class="form-group">
                               <button type="submit" class="btn btn-primary">Login</button> 
