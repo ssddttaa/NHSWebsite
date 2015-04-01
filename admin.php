@@ -10,9 +10,9 @@
     
 </head>
 <body style="max-width:100%;overflow-x:hidden;">   
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
-        <div class="navbar navbar-default" style="margin-bottom:0px;background-color:#2980b9;">
+    <script src="jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <div class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.51);">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar-content">
