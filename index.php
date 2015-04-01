@@ -42,14 +42,14 @@
                 <div class="collapse navbar-collapse" id="mynavbar-content">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown" id="menuLogin">
-                          <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" style="opacity:1.0;">Login</a>
+                          <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
                           <div class="dropdown-menu" style="padding:17px;">
                             <form class="form" id="formLogin"> 
                             <div class="form-group">
-                              <input type="text" class="form-control" id="username" placeholder="Username" />
+                              <input type="text" class="form-control" id="username" placeholder="Username"/>
                               </div>
                               <div class="form-group">
-                              <input type="password" class="form-control" id="password" placeholder="Password" />
+                              <input type="password" class="form-control" id="password" placeholder="Password"/>
                               </div>
                               <div class="form-group">
                               <button type="submit" class="btn btn-primary">Login</button> 
@@ -63,13 +63,7 @@
         </div>
         <div class="jumbotron" style="background: url('bg.jpg'); margin-top:-80px; padding-top:165px; padding-bottom:135px;">
   <div class="container">
-    <h1 style="color:white; text-align:center;">National Honor Society</h1>
-    <h1 style="color:#DFDFDF; text-align:center; font-size:30px;">Downingtown STEM Academy</h1>
-  </div>
-</div>
-        <div class="container">
-
-        <!--<div class="panel panel-default">
+    <!--<div class="panel panel-default">
             <div class="panel-heading">
                 ATTENTION STUDENTS
             </div>
@@ -80,6 +74,13 @@
                 <a href="#" class="btn btn-danger btn-sm">Agree</a> 
             </div>
         </div>-->
+    <h1 style="color:white; text-align:center;">National Honor Society</h1>
+    <h1 style="color:#DFDFDF; text-align:center; font-size:30px;">Downingtown STEM Academy</h1>
+  </div>
+</div>
+        <div class="container">
+
+        
         <div class="row">
             <div class="col-md-9">
                 <h4>Updates</h4>
