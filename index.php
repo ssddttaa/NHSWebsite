@@ -9,7 +9,24 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     
 </head>
-<body style="max-width:100%;overflow-x:hidden;">   
+<body style="max-width:100%;overflow-x:hidden;">
+    <script>xam
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '1628939997340252',
+            xfbml      : true,
+            version    : 'v2.3'
+          });
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+    </script>
     <script src="jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <div class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.51);">
