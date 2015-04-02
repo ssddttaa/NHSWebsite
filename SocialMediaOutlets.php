@@ -9,11 +9,15 @@ function postToTwitter($message)
     $cb->setToken("1485424604-aGwtCYnZzvax95Zksw7M3vSn4wfnx8gyO3ujfiy", "sAD8J6S5U4oX6i7GF89ShIPYPbFcqELMoYXnIN9ty65x5");
 
     $params = array(
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       'status' => $message
 =======
       'status' => 'this might be sadat'
 >>>>>>> origin/master
+=======
+      'status' => '@ElProfeLowe This is Dan Xu'
+>>>>>>> Stashed changes
     );
     $reply = $cb->statuses_update($params); 
 }

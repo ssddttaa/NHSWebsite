@@ -29,40 +29,44 @@
     </script>
     <script src="jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <div class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.51);">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar-content">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#" style="font-size:22px; color:white;">stem nhs</a>
-                </div>
-                <div class="collapse navbar-collapse" id="mynavbar-content">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" id="menuLogin">
-                          <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
-                          <div class="dropdown-menu" style="padding:17px;">
+    <div class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.51);">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar-content">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="font-size:22px; color:white;">stem nhs</a>
+            </div>
+            <div class="collapse navbar-collapse" id="mynavbar-content">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" id="menuLogin">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+                        <div class="dropdown-menu" style="padding:17px;">
                             <form class="form" id="formLogin"> 
-                            <div class="form-group">
-                              <input type="text" class="form-control" id="username" placeholder="Username"/>
-                              </div>
-                              <div class="form-group">
-                              <input type="password" class="form-control" id="password" placeholder="Password"/>
-                              </div>
-                              <div class="form-group">
-                              <button type="submit" class="btn btn-primary">Login</button> 
-                          </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="username" placeholder="Username"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" placeholder="Password"/>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Login</button> 
+                                </div>
                             </form>
-                          </div>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="jumbotron" style="background: url('bg.jpg'); margin-top:-80px; padding-top:165px; padding-bottom:135px;">
-  <div class="container">
+    </div>
+    <div class="jumbotron" style="background: url('bg.jpg'); margin-top:-80px; padding-top:165px; padding-bottom:135px;">
+            <!--<div class="row" style="padding-left:15px; margin-top:-105px; background-color:yellow; padding-bottom: 0px; height:25px; line-height:25px;">
+                <div class="col-md-12">
+                    <p style="font-size:14px; color:red;">URGENT:</p>
+                </div>
+            </div>-->
     <!--<div class="panel panel-default">
             <div class="panel-heading">
                 ATTENTION STUDENTS
@@ -74,23 +78,24 @@
                 <a href="#" class="btn btn-danger btn-sm">Agree</a> 
             </div>
         </div>-->
-    <h1 style="color:white; text-align:center;">National Honor Society</h1>
-    <h1 style="color:#DFDFDF; text-align:center; font-size:30px;">Downingtown STEM Academy</h1>
-  </div>
+        <h1 style="color:white; text-align:center;">National Honor Society</h1>
+        <h1 style="color:#DFDFDF; text-align:center; font-size:30px;">Downingtown STEM Academy</h1>
+        <!--<button type="submit" class="btn btn-primary">Learn More</button>-->
+    </div>
 </div>
-        <div class="container">
+<div class="container">
 
-        
-        <div class="row">
-            <div class="col-md-9">
-                <h4>Updates</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            </div>
-            <div class="col-md-3">
-                <h4>Events</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <h4>Updates</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
         </div>
+        <div class="col-md-3">
+            <h4>Events</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+    </div>
         <!--<form class="form">
             <div class="form-group">
                 <label for="nameField">Name</label>
