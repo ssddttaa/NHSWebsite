@@ -1,3 +1,17 @@
+<?php
+$user="NHSExecutives";
+$pass="nhsislife15";
+
+$correctUser=md5($user);
+$correctPass=md5($pass);
+
+if(!isset($_COOKIE[$correctUser])) {
+    echo "ACCESS DENIED";
+}
+else {
+    if ($_COOKIE[$correctUser]===$correctPass) {
+?>
+
 <!DOCTYPE html>
 <html lang="en" style="max-width:100%;overflow-x:hidden;">
 <head>
@@ -27,10 +41,10 @@
             <div class="collapse navbar-collapse" id="mynavbar-content">
                 <ul class="nav navbar-nav navbar-right">
                     <li id="menuManageEvents">
-                      <a href="#" data-toggle="dropdown" id="navManageEvents">Manage Events</a>
+                      <a href="#" id="navManageEvents">Manage Events</a>
                   </li>
                   <li id="menuLogout">
-                      <a href="#" data-toggle="dropdown" id="navLogout">Logout</a>
+                      <a href="logout.php" id="navLogout">Logout</a>
                   </li>
               </ul>
           </div>
@@ -133,3 +147,10 @@
 </form>-->
 </body>
 </html>
+<?php
+    }
+    else {
+        echo "ACCESS DENIED";
+    }
+}
+?>

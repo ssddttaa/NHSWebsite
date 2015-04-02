@@ -44,12 +44,12 @@
                     <li class="dropdown" id="menuLogin">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
                         <div class="dropdown-menu" style="padding:17px;">
-                            <form class="form" id="formLogin"> 
+                            <form class="form" id="formLogin" method="post" action="login.php"> 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="username" placeholder="Username"/>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="password" placeholder="Password"/>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Login</button> 
@@ -96,30 +96,6 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
         </div>
     </div>
-        <!--<form class="form">
-            <div class="form-group">
-                <label for="nameField">Name</label>
-                <input type="text" class="form-control" id="nameField" placeholder="Your Name" />
-            </div>
-
-            <div class="form-group">
-                <label for="emailField">Email</label>
-                <input type="email" class="form-control" id="emailField" placeholder="Your Email" />
-            </div>
-
-            <div class="form-group">
-                <label for="phoneField">Phone</label>
-                <input type="text" class="form-control" id="phoneField" placeholder="Your Phone Number" />
-            </div>
-
-            <div class="form-group">
-                <label for="descField">Description</label>
-                <textarea class="form-control" id="descField" placeholder="Your Comments"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button> 
-            <button type="reset" class="btn btn-default">Reset</button>
-        </form>-->
     </div>
 </body>
 </html>
