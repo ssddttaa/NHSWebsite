@@ -41,19 +41,19 @@
                 </div>
                 <div class="collapse navbar-collapse" id="mynavbar-content">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" id="menuLogin">
+                        <li class="dropdown" id="menuLogin" style = "margin-bottom: 0px;">
                           <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
-                          <div class="dropdown-menu" style="padding:17px;">
+                          <div class="dropdown-menu" style="padding:10px;">
                             <form class="form" id="formLogin"> 
-                            <div class="form-group">
+                            <div class="form-group" style = "width:250px;">
                               <input type="text" class="form-control" id="username" placeholder="Username"/>
                               </div>
-                              <div class="form-group">
+                              <div class="form-group" style = "width:250px;">
                               <input type="password" class="form-control" id="password" placeholder="Password"/>
                               </div>
                               <div class="form-group">
                               <button type="submit" class="btn btn-primary">Login</button> 
-                          </div>
+                              </div>
                             </form>
                           </div>
                         </li>
