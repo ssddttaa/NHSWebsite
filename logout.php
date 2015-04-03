@@ -1,4 +1,4 @@
 <?php
-setcookie($protectedUser, "", time()-3600);
+setcookie(md5("NHSExecutives"), "", time()-3600);
 header("Location: index.php");
 ?>
