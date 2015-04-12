@@ -61,7 +61,7 @@ else {
   </div>
   <div class="jumbotron" style="background: url('bg.jpg'); margin-top:-80px; padding-top:60px; padding-bottom:0px; max-height:50px"></div>
   <div class="col-xs-6 col-xs-offset-3">
-    <div class="panel panel-default">
+    <div class="panel panel-default" style='display:none'>
         <div class="panel-heading">
             ATTENTION
         </div>
@@ -72,28 +72,6 @@ else {
             <a href="#" class="btn btn-danger btn-sm">Agree</a> 
         </div>
     </div>
-</div>
-<div class="col-xs-3">
-    <h4>Events</h4>
-    <?php
-        $sql = "SELECT name, description, date, time FROM Events";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-                echo "<ul><a>".$row["name"]. "</a> " . $row["date"]."<li style='display: none'>". $row["description"]."</li></ul>";
-            }
-        } else {
-            echo "There are no upcoming events";
-        }
-    ?>
-    <script>
-    $("ul").click(function() {
-      $(this).children().slideDown("fast");
-    });
-    </script>
-</div>
-<div class="col-xs-6 col-xs-offset-3">
     <div class="panel panel-default">
         <div class="panel-heading">
             CREATE AN UPDATE
@@ -109,10 +87,7 @@ else {
             </form>
         </div>
     </div>
-</div>
-
-<div class="col-xs-6 col-xs-offset-3">
-    <div class="panel panel-default">
+       <div class="panel panel-default">
         <div class="panel-heading">
             CREATE A MEETING
         </div>
@@ -151,13 +126,29 @@ else {
             </form>
         </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-        <h4>Updates</h4>
+            <h4>Updates</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-    </div>
+
+</div>
+<div class="col-xs-3">
+    <h4>Events</h4>
+    <?php
+        $sql = "SELECT name, description, date, time FROM Events";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<ul style='padding-left:0px;'><a>".$row["name"]. "</a> " . $row["date"]."<li style='display:none; list-style-type: none;'>". $row["description"]."</li></ul>";
+            }
+        } else {
+            echo "There are no upcoming events";
+        }
+    ?>
+    <script>
+        $("ul").click(function() {
+                $(this).children().slideDown("fast");
+        });
+    </script>
 </div>
 </body>
 </html>
