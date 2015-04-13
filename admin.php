@@ -1,5 +1,5 @@
 <?php
-require_once('CheckTokenValidity.php');
+//require_once('CheckTokenValidity.php');
 $servername = "sql3.freemysqlhosting.net";
 $username = "sql373806";
 $password = "tP4*vK2*";
@@ -86,7 +86,7 @@ $correctPass=md5($pass);
     } 
     else {
         if ($_COOKIE[$correctUser] === $correctPass) {
-            if (!CheckTokenValidity::isTokenActive($pass)) {
+            /*if (!CheckTokenValidity::isTokenActive($pass)) {
                 $app_ID = '1628939997340252';
                 $app_secret = '3c202c339b6e4c59b308ae62fcc86f5e';
                 \Facebook\FacebookSession::setDefaultApplication($app_ID, $app_secret);
@@ -96,7 +96,7 @@ $correctPass=md5($pass);
                 echo "<script>$( document ).ready(function(){grayOutFacebook('${loginURL}');});</script>";
                 $_SESSION['pass'] = $pass;
                 
-            }
+            }*/
             ?>
     <div class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.51);">
         <div class="container-fluid">
@@ -208,14 +208,30 @@ $correctPass=md5($pass);
 <div class="col-xs-3">
     <h4>Events</h4>
     <?php
-        $sql = "SELECT name, description, date, time FROM Events";
+        $sql = "SELECT date FROM Events";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
+            $counter = 0;
             while($row = mysqli_fetch_assoc($result)) {
-                echo "<ul style='padding-left:0px;'><a>".$row["name"]. "</a> " . $row["date"]."<li style='display:none; list-style-type: none;'>". $row["description"]."</li></ul>";
+                date_default_timezone_set('America/New_York');
+                $dateToday = date('m/d/Y', time());
+                if (strtotime($dateToday) <= strtotime($row["date"])) {
+                    $dateArray[$counter] = $row["date"];
+                    $counter++;
+                } 
             }
-        } else {
+            sort($dateArray);
+            $length = count($dateArray);
+            for ($i = 0; $i < $length; $i++) {
+                $sql = "SELECT name, description, date, time FROM Events WHERE date='$dateArray[$i]'";
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<ul style='padding-left:0px;'><a>".$row["name"]. "</a> " . $row["date"]."<li style='display:none; list-style-type: none;'>". $row["description"]."</li></ul>";
+                }
+            }
+        } 
+        else {
             echo "There are no upcoming events";
         }
     ?>
