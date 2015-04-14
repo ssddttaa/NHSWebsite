@@ -1,5 +1,5 @@
 <?php
-//require_once('CheckTokenValidity.php');
+require_once('CheckTokenValidity.php');
 $servername = "sql3.freemysqlhosting.net";
 $username = "sql373806";
 $password = "tP4*vK2*";
@@ -15,6 +15,8 @@ $pass="nhsislife15";
 
 $correctUser=md5($user);
 $correctPass=md5($pass);
+
+date_default_timezone_set('America/New_York');
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +88,7 @@ $correctPass=md5($pass);
     } 
     else {
         if ($_COOKIE[$correctUser] === $correctPass) {
-            /*if (!CheckTokenValidity::isTokenActive($pass)) {
+            if (!CheckTokenValidity::isTokenActive($pass)) {
                 $app_ID = '1628939997340252';
                 $app_secret = '3c202c339b6e4c59b308ae62fcc86f5e';
                 \Facebook\FacebookSession::setDefaultApplication($app_ID, $app_secret);
@@ -96,7 +98,7 @@ $correctPass=md5($pass);
                 echo "<script>$( document ).ready(function(){grayOutFacebook('${loginURL}');});</script>";
                 $_SESSION['pass'] = $pass;
                 
-            }*/
+            }
             ?>
     <div class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.51);">
         <div class="container-fluid">
@@ -122,6 +124,9 @@ $correctPass=md5($pass);
   </div>
   <div class="jumbotron" style="background: url('bg.jpg'); margin-top:-80px; padding-top:60px; padding-bottom:0px; max-height:50px"></div>
   <div class="col-xs-6 col-xs-offset-3">
+    <?php
+        $dateTimeToday = 60*date("H")+date("i");
+    ?>
     <div class="panel panel-default">
         <div class="panel-heading">
             ATTENTION
@@ -214,7 +219,6 @@ $correctPass=md5($pass);
         if (mysqli_num_rows($result) > 0) {
             $counter = 0;
             while($row = mysqli_fetch_assoc($result)) {
-                date_default_timezone_set('America/New_York');
                 $dateToday = date('m/d/Y', time());
                 if (strtotime($dateToday) <= strtotime($row["date"])) {
                     $dateArray[$counter] = $row["date"];
