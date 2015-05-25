@@ -1,6 +1,7 @@
 {
     "require":
     {
-        "facebook/php-sdk-v4" : "4.0.*"
+        "facebook/php-sdk-v4" : "4.0.*",
+        "lusitanian/oauth"    : "0.3.5" 
     }
 }

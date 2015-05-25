@@ -36,7 +36,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" style="font-size:22px; color:white;">stem nhs</a>
+                <a class="navbar-brand" href="#" style="font-size:22px; color:white;">STEM NHS</a>
             </div>
             <div class="collapse navbar-collapse" id="mynavbar-content">
                 <ul class="nav navbar-nav navbar-right">
@@ -88,11 +88,11 @@
     <div class="row">
         <div class="col-md-9">
             <h4>Updates</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <p>Congratulations senior class on finishing your IB Exams! </p>
         </div>
         <div class="col-md-3">
             <h4>Events</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <p> Senior year ceremony. </p>
         </div>
     </div>
     </div>

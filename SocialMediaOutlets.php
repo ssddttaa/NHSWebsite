@@ -1,6 +1,10 @@
 <?php
-$message = "testing testing hello";//$_POST['Message']
+/*if(!isset($_POST['updateField']))
+{
+    header("location:admin.php");
+}*/
 session_start();
+$message = $_POST['updateField'];
 $filePath = 'vendor/facebook/php-sdk-v4/src/Facebook/';
 require_once($filePath.'FacebookSession.php');
 require_once($filePath.'FacebookRequest.php');
@@ -9,6 +13,7 @@ require_once($filePath.'FacebookSDKException.php');
 require_once($filePath.'FacebookRequestException.php');
 require_once($filePath.'FacebookRedirectLoginHelper.php');
 require_once($filePath.'FacebookAuthorizationException.php');
+require_once($filePath.'FacebookServerException.php');
 require_once($filePath.'GraphObject.php');
 require_once($filePath.'GraphUser.php');
 require_once($filePath.'GraphSessionInfo.php');
@@ -16,20 +21,23 @@ require_once($filePath.'Entities/AccessToken.php');
 require_once($filePath.'HttpClients/FacebookCurl.php');
 require_once($filePath.'HttpClients/FacebookHttpable.php');
 require_once($filePath.'HttpClients/FacebookCurlHttpClient.php');
+require_once('vendor/schoology_php_sdk-master/SchoologyApi.class.php');
 use Facebook\FacebookSession as FacebookSession;
 use Facebook\FacebookRequest;
 use Facebook\GraphUser;
 use Facebook\FacebookRequestException as FacebookRequestException;
 use Facebook\FacebookRedirectLoginHelper;
-
+$appID = '1445019925795431';
+$appSecret = '777950f6896a07f18592e375e82ff465';
+$accountID = '386444624895902';
+$pageID = '360571057466262';
 function postToTwitter($message)
 {
     require_once('codebird-php-develop/src/codebird.php');
  
-    \Codebird\Codebird::setConsumerKey("xQLlqWFsObilU1omDlP32g80a", "yrppLlhpdmHbLv3wOjyTN3DHLa9L6AmZEShdWP2z68pySxw1rx");
+    \Codebird\Codebird::setConsumerKey("aANOKu9972CHj8ccxoLTd4xi8", "ZgJatPMGTd2Trb5qun9g6EwaRXpFFllSg7y6LYLjIGgxGjWS5j");
     $cb = \Codebird\Codebird::getInstance();
-    $cb->setToken("1485424604-aGwtCYnZzvax95Zksw7M3vSn4wfnx8gyO3ujfiy", "sAD8J6S5U4oX6i7GF89ShIPYPbFcqELMoYXnIN9ty65x5");
-
+    $cb->setToken("3297100085-LGDNKKgfCaI9Tqlg2nEFLQu3slWcK3mzl4gWHqE", "JI3sp43GJEefc9cIGxzoQ32Usfr3WxJFawgBYHsUdERWc");
     $params = array(
 
       'status' => $message
@@ -37,72 +45,56 @@ function postToTwitter($message)
     );
     $reply = $cb->statuses_update($params); 
 }
-function postToFacebook($message)
+function postToFacebook($message, $accessToken)
 {
-    FacebookSession::setDefaultApplication('1628939997340252','3c202c339b6e4c59b308ae62fcc86f5e');
-
-    // Use one of the helper classes to get a FacebookSession object.
-    //   FacebookRedirectLoginHelper
-    //   FacebookCanvasLoginHelper
-    //   FacebookJavaScriptLoginHelper
-    // or create a FacebookSession with a valid access token:
-    $helper = new \Facebook\FacebookRedirectLoginHelper('http://localhost/NHSWebsite/PostToPage.php');
-    $loginUrl = $helper->getLoginUrl();
-    echo "<a href = ${loginUrl}>Click here</a>";
-    
-
-    // Get the GraphUser object for the current user:
-
-    /*try {
-      $me = (new FacebookRequest(
-        $session, 'GET', '/me'
-      ))->execute()->getGraphObject(GraphUser::className());
-      echo $me->getName();
-    } catch (FacebookRequestException $e) {
-      // The Graph API returned an error
-    } catch (\Exception $e) {
-      // Some other error occurred
-    }*/
-    //Getting the access key
-    //FacebookSession::setDefaultApplication('1628939997340252', '3c202c339b6e4c59b308ae62fcc86f5e');
-    
-   
-    /*$chGetAccessToken = curl_init();
-    $getAccessURL = "https://graph.facebook.com/oauth/access_token?client_id=1628939997340252&client_secret=3c202c339b6e4c59b308ae62fcc86f5e&grant_type=client_credentials";
-    curl_setopt($chGetAccessToken, CURLOPT_URL, $getAccessURL);
-    curl_setopt($chGetAccessToken, CURLOPT_RETURNTRANSFER, 1);
-    $accessToken = curl_exec($chGetAccessToken);
-    echo $accessToken;
-    $session = new FacebookSession($accessToken);
-    
-    $request = new FacebookRequest($session, 'GET', '/me');
-    $response = $request->execute();
+    global $appID;
+    global $appSecret;
+    global $accountID;
+    global $pageID;
+    $accessToken = $accessToken;
+    FacebookSession::setDefaultApplication('1445019925795431','777950f6896a07f18592e375e82ff465');
+    $facebookSession = new FacebookSession($accessToken);
+    print_r(array('access_token'=>${accessToken},'message'=>$message));
+    $postMessage = new FacebookRequest($facebookSession, "POST", "/${pageID}/feed",array('access_token'=>${accessToken},'message'=>$message));
+    $facebookResponse = $postMessage->execute();
+}
+function postToSchoology($message)
+{
+    $consumerKey = '5e8d3eb0c117a3df05a1ed15d2ef9e7b055628b4b';
+    $consumerSignature = '80ec72feeaedc39d82747f167e8e1820'; //same thing as consumer secret
+    $nhsSchoologyGroupID = '284786740';    
+    $schoology = new SchoologyApi($consumerKey, $consumerSignature, '', '','', TRUE);
+    $schoologyResponse = $schoology->api("groups/${nhsSchoologyGroupID}/updates", "POST", array('body'=>$message));
+    print_r($schoologyResponse);
+}
+function refreshToken($shortAccessToken)
+{
+    global $appID;
+    global $appSecret;
+    FacebookSession::setDefaultApplication('1445019925795431','777950f6896a07f18592e375e82ff465');
+    $session = new FacebookSession($shortAccessToken);
+    $facebookRequest = new FacebookRequest($session, "GET", "/oauth/access_token?grant_type=fb_exchange_token&client_id=${appID}&client_secret=${appSecret}&fb_exchange_token=${shortAccessToken}");
+    $response = $facebookRequest->execute();
     $graphObject = $response->getGraphObject();
-    print $graphObject;*/
-    /*
-    curl_close($chGetAccessToken);
-    
-    $page_id = '633801056751107';
-    
-    $data['message'] = $message;
-    
-    $data['access_token'] = $accessToken;
-    
-    $get_url = 'https://graph.facebook.com/100005480894198';*/
-    
-    
-    /*$chPostMessage = curl_init();
-    curl_setopt($chPostMessage, CURLOPT_URL, $get_url);
-    $post_url = 'https://graph.facebook.com/'.$page_id.'/feed';
-    curl_setopt($chPostMessage, CURLOPT_URL, $post_url);
-    curl_setopt($chPostMessage,CURLOPT_POST, 1);
-    curl_setopt($chPostMessage, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($chPostMessage, CURLOPT_RETURNTRANSFER,1);
-    $return = curl_exec($chPostMessage);
-    echo "Return 2:".$return;
-    
-    curl_close($chPostMessage);*/
+    $longLivedAccess = $graphObject->getProperty('access_token');
+    echo $longLivedAccess;
+    return $longLivedAccess;
+}
+function makeAllApiCalls()
+{
+    if(isset($_POST['facebook'])&&$_POST['facebook'] === 'on')
+    {
+        postToFacebook($message,refreshToken("CAAUiPOte0mcBAMyoUavFMQx0iLd6t9GIgzMjk2ZB2LyBIDpX7G73KFYNTiYSc928ibCukB0mV756JpqLErI34ZCgjrmZArTp1ZBeq3mG2GiLRR6f27rGgfvfNDdVeau1sHV1ibbCapyls35MIUplNtSMsUrBvIhyygro2TZB0bhBgT5LISVOv09ulmaLPWJ4jQ0J2NqMdnhZBPlr57w5qqTiwTbJMq7WsZD"));
+    }
+    if(isset($_POST['schoology'])&&$_POST['schoology'] === 'on')
+    {
+        postToSchoology($message);
+    }
+    if(isset($_POST['twitter'])&&$_POST['twitter'] === 'on')
+    {
+        postToTwitter($message);
+    }
 }
 
-postToFacebook($message)
-?>
+makeAllApiCalls();
+

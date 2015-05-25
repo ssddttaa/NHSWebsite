@@ -50,26 +50,25 @@ class CheckTokenValidity
         $EncryptedAccessToken =  $encryptedTokenArray['EncryptedAccesToken'];
         return $EncryptedAccessToken;
     }
-    function isTokenActive($password)
+    function hasLoggedInFacebook($password)
     {
         FacebookSession::setDefaultApplication('1628939997340252', '3c202c339b6e4c59b308ae62fcc86f5e');
+        $isActive = false;
         $EncryptedAccessToken = self::getFileContents();
         $extendedPass = self::extendTo16Chars($password);
-        $decryptedToken = self::decryptEncryptedAccessToken($EncryptedAccessToken,$extendedPass);$isActive = false;
+        $decryptedToken = self::decryptEncryptedAccessToken($EncryptedAccessToken,$extendedPass);
+        $decryptedToken = 'CAAXJgyXm4lwBABZAJTTz4RZCrwDkZBMgGncTmNmfVbzWUp1FXIUaNbtEphbZBmUYPDlZByIkjGufim99c8obWdqV8ZBDxppJZCZBiqXfZBW3nZA9UaunpVIusKpD9IYdN3xqjZCZBZCrIhC6ZBzByLZBXafQZC97ZBDH6TnEwI4Vlrl9CUtKj5raWZC5ujxGhYMryDLjFU1WIZD';
         try
         {
-            $session = new FacebookSession($decryptedToken);
+            $session = new FacebookSession(preg_replace('@\x{FFFD}@u', '', $decryptedToken)); 
             $getInfoRequest = new FacebookRequest($session, 'GET', '/me?fields=id');
             $InfoResponse = $getInfoRequest->execute();
             $infoObject = $InfoResponse->getGraphObject();
             print_r($infoObject);
             $ID = $infoObject->getProperty('id');
-            echo 'userID'.$ID;
             if ($ID!=null){$isActive = true;}
         } 
-        catch (Exception $ex) 
-        {
-            echo $ex;
+        catch (Exception $ex) {
         }
         return $isActive;
         

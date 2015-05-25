@@ -1,14 +1,20 @@
 <?php
 require_once('CheckTokenValidity.php');
 $servername = "sql3.freemysqlhosting.net";
-$username = "sql373806";
-$password = "tP4*vK2*";
-$dbname = "sql373806";
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$username = "sql377475";
+$password = "qE2!bJ4*";
+$dbname = "sql377475";
+//$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if (!$conn) {
+/*if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+else
+{
+    $query = "SELECT * FROM Username";
+    $result = mysqli_query($conn, $query);
+    print_r($result->fetch_row());
+}*/
 
 $user="NHSExecutives";
 $pass="nhsislife15";
@@ -83,22 +89,22 @@ date_default_timezone_set('America/New_York');
         }
     </script>
     <?php
-    if (!isset($_COOKIE[$correctUser])) {
+    if (false){//!isset($_COOKIE[$correctUser])) {
         echo "ACCESS DENIED";
     } 
     else {
-        if ($_COOKIE[$correctUser] === $correctPass) {
-            if (!CheckTokenValidity::isTokenActive($pass)) {
+        //if ($_COOKIE[$correctUser] === $correctPass) {
+        if (true) {
+            /*if (//!CheckTokenValidity::isTokenActive($pass)) {
                 $app_ID = '1628939997340252';
                 $app_secret = '3c202c339b6e4c59b308ae62fcc86f5e';
                 \Facebook\FacebookSession::setDefaultApplication($app_ID, $app_secret);
-                $helper = new \Facebook\FacebookRedirectLoginHelper('http://localhost/NHSWebsite/RenewToken.php');
+                $_SESSION['pass'] = $pass;
+                $helper = new Facebook\FacebookSession('CAAXJgyXm4lwBAH4OK1Sq5l4XYefU4s7qpX3ZBZBnfdOKYM5ZB2RFzxga4t8xxslhCdZBhkHXL6pXnStyzUZCH0ZCZADyhbFx6zFeciCoVVThusI2W5p2IO7BhxGv8xgrDd9aabi8Lswq1RurbikXiXMJw9uFOAhPjJYE71SJb87ef8BQLZAdOrTx');
                 $loginURL = $helper->getLoginUrl();
                 echo "<div style = 'display:none' id = 'loginURL' name = 'loginURL'>'${loginURL}'</div>";
                 echo "<script>$( document ).ready(function(){grayOutFacebook('${loginURL}');});</script>";
-                $_SESSION['pass'] = $pass;
-                
-            }
+            }*/
             ?>
     <div class="navbar navbar-inverse" style="background-color: rgba(0, 0, 0, 0.51);">
         <div class="container-fluid">
@@ -143,9 +149,34 @@ date_default_timezone_set('America/New_York');
             CREATE AN UPDATE
         </div>
         <div class="panel-body">
-            <form class="form">
+            <form action = "SocialMediaOutlets.php" method = "post">
+                <textarea class="form-control" name ="updateField" placeholder="Post to Schoology, Facebook, and Twitter"></textarea>
                 <div class="form-group">
-                    <textarea class="form-control" id="updateField" placeholder="Post to Schoology, Facebook, and Twitter"></textarea>
+                    <div class="col-xs-2">
+                        <div id = "FacebookLogin" style = "display:none;">
+                            <a id = "loginLink"><img src="img/LoginDefault.png" alt = "Login here" id = "LoginButton" onMouseOver="this.src = 'img/LoginHover.png'" onMouseOut="this.src = 'img/LoginDefault.png'" style = "cursor:hand; cursor:pointer;"></a>
+                        </div>
+                        <input type ="checkbox" name = "facebook" id = "facebook" data-content = "testing" data-toggle="hover" data-placement = "bottom" data-original-title = "testing testing">
+                        <i class="fa fa-facebook-square fa-2x" id = "facebookGlyph"></i>
+                    </div>
+                    <div class="col-xs-2">
+                        <input type ="checkbox" name = "twitter" id = "twitter">
+                        <i class="fa fa-twitter-square fa-2x"></i>
+                    </div>
+                    <div class="col-xs-2">
+                        <input type ="checkbox" name = "schoology" id = "twitter">
+                        <i class="fa fa-skype fa-2x"></i>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <input type = "submit">
+                </div>
+            </form>
+            <!--<form action = "SocialMediaOutlets.php" method = "post">
+                <input type = "text" name ="updateField">
+                <!--<textarea class="form-control" id="updateField" name ="updateField" placeholder="Post to Schoology, Facebook, and Twitter"></textarea>
+                <div class="form-group">
+                    <textarea class="form-control" id="updateField" name ="updateField" placeholder="Post to Schoology, Facebook, and Twitter"></textarea>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-2">
@@ -160,11 +191,11 @@ date_default_timezone_set('America/New_York');
                         <i class="fa fa-twitter-square fa-2x"></i>
                     </div>
                 </div>
-                </form>
-            </div>
-            <div class="panel-footer">
-                <button type="submit" class="btn btn-primary">Submit</button> 
-            </div>
+                <div class="panel-footer">
+                    <input type="submit" class="btn btn-primary">
+                </div>
+            </form>-->
+        </div>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -202,8 +233,9 @@ date_default_timezone_set('America/New_York');
             </div>
             <div class="panel-footer">
                 <button type="submit" class="btn btn-primary">Submit</button> 
-            </form>
+            
         </div>
+        </form>
     </div>
 
     <h4>Updates</h4>
@@ -213,10 +245,10 @@ date_default_timezone_set('America/New_York');
 <div class="col-xs-3">
     <h4>Events</h4>
     <?php
-        $sql = "SELECT date FROM Events";
-        $result = mysqli_query($conn, $sql);
+       // $sql = "SELECT date FROM Events";
+        //$result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) > 0) {
+        /*if (mysqli_num_rows($result) > 0) {
             $counter = 0;
             while($row = mysqli_fetch_assoc($result)) {
                 $dateToday = date('m/d/Y', time());
@@ -237,7 +269,7 @@ date_default_timezone_set('America/New_York');
         } 
         else {
             echo "There are no upcoming events";
-        }
+        }*/
     ?>
     <script>
         $("ul").click(function() {

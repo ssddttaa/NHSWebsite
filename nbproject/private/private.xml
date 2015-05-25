@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NHSWebsite/PostToPage.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/NHSWebsite/RenewToken.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NHSWebsite/CheckTokenValidity.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NHSWebsite/index.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NHSWebsite/vendor/facebook/php-sdk-v4/src/Facebook/FacebookRequest.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NHSWebsite/composer.json</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NHSWebsite/SocialMediaOutlets.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/NHSWebsite/admin.php</file>
         </group>
     </open-files>

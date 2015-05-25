@@ -44,6 +44,8 @@ catch (\Exception $ex) {
 if($session)
 {
     //get user access token
+    try
+    {
     $currentAccessToken = $session->getAccessToken();
     $requestID = new FacebookRequest($session, 'GET',"/me?fields=id");
     $IDRequestResponse = $requestID->execute();
@@ -54,6 +56,7 @@ if($session)
     $graphObject = $response->getGraphObject();
     //get long lived token
     $longLivedToken = $graphObject->getProperty('access_token');
+    die($longLivedToken);
     $jsonFile = file_get_contents('info.json');
     $jsonData = json_decode($jsonFile, true);
     $encrypted = CheckTokenValidity::encryptNewAccessToken($longLivedToken,  CheckTokenValidity::extendTo16Chars($_SESSION['pass']));
@@ -61,6 +64,11 @@ if($session)
     $jsonFileWrite = fopen('info.json','w'); 
     fwrite($jsonFileWrite, json_encode($jsonData));
     header('Location:admin.php');
+    }
+    catch(Exception $ex)
+    {
+        die($ex);
+    }
 }
 else
 {
